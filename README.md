@@ -1,5 +1,7 @@
 # oh-today-web
 
+> oh-today 前端页面
+
 ## Project setup
 ```
 yarn install
