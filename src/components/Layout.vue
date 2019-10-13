@@ -76,7 +76,7 @@
               class="nav-link dropdown-toggle nav-link-lg nav-link-user"
             >
               <img alt="image" src="/static/img/avatar/avatar-1.png" class="rounded-circle mr-1" />
-              <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
+              <div class="d-sm-none d-lg-inline-block">Hi, oho</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-title">您好</div>
@@ -103,22 +103,20 @@
             <router-link to="/">OT</router-link>
           </div>
           <ul class="sidebar-menu">
-            <li class="menu-header">home</li>
-            <li id="home">
-              <router-link class="nav-link" to="/">
+            <li id="home"  :class="{'active': activeId=='home'}" @click="changeActive('home')">
+              <router-link class="nav-link" to="/" >
                 <i class="fas fa-fire"></i>
                 <span>发现</span>
               </router-link>
             </li>
-            <li class="menu-header">Starter</li>
-            <li class="dropdown">
+            <li class="dropdown"  :class="{'active': activeId!='home'}">
               <a href="#" class="nav-link has-dropdown">
                 <i class="fas fa-th"></i>
                 <span>我的订阅</span>
               </a>
               <ul class="dropdown-menu">
-                <li v-for="site in sites" :key="site.id">
-                  <router-link class="nav-link" :to="'/site/'+site.id">{{site.name | sub8}}</router-link>
+                <li v-for="site in sites" :key="site.id" :class="{'active': activeId==site.id}" @click="changeActive(site.id)">
+                  <router-link class="nav-link" :to="'/site/'+site.id" >{{site.name | sub8}}</router-link>
                 </li>
               </ul>
             </li>
@@ -164,6 +162,16 @@ export default {
   name: "Layout",
   props: {
     sites: Array
+  },
+  data(){
+    return {
+      activeId:''
+    }
+  },
+  methods:{
+    changeActive(activeId){
+      this.activeId = activeId
+    }
   },
   filters: {
     sub8(v) {
