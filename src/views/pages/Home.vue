@@ -9,10 +9,16 @@
           </h2>
           <p class="lead" v-text="site.host">zhihu.com</p>
           <div class="mt-4">
-            <router-link :to="'/site/'+site.id" class="btn btn-outline-white btn-lg btn-icon icon-left">
+            <router-link
+              :to="'/site/'+site.id"
+              class="btn btn-outline-white btn-lg btn-icon icon-left"
+            >
               <i class="far fa-user"></i> 订阅
             </router-link>
-            <router-link to="/site/" class="btn btn-outline-white btn-lg btn-icon icon-left">
+            <router-link
+              :to="'/site/'+site.id"
+              class="btn btn-outline-white btn-lg btn-icon icon-left"
+            >
               <i class="far fa-user"></i> 查看
             </router-link>
           </div>
@@ -22,6 +28,7 @@
   </div>
 </template>
 <script>
+import { mapMutations } from "vuex";
 import { listSiteAll } from "@/api/home";
 export default {
   data() {
@@ -29,7 +36,11 @@ export default {
       sites: []
     };
   },
+  methods: {
+    ...mapMutations(["setSectionHeader"])
+  },
   mounted() {
+    this.setSectionHeader("发现");
     listSiteAll().then(res => {
       this.sites = res.data.content;
     });
