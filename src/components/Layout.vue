@@ -68,7 +68,7 @@
             </div>
           </div>
         </form>
-        <ul class="navbar-nav navbar-right">
+        <!-- <ul class="navbar-nav navbar-right">
           <li class="dropdown">
             <a
               href="#"
@@ -92,7 +92,7 @@
               </a>
             </div>
           </li>
-        </ul>
+        </ul> -->
       </nav>
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
@@ -112,7 +112,7 @@
             <li class="dropdown"  :class="{'active': activeId!='home'}">
               <a href="#" class="nav-link has-dropdown">
                 <i class="fas fa-th"></i>
-                <span>我的订阅</span>
+                <span>站点</span>
               </a>
               <ul class="dropdown-menu">
                 <li v-for="site in sites" :key="site.id" :class="{'active': activeId==site.id}" @click="changeActive(site.id)">
@@ -123,8 +123,8 @@
           </ul>
 
           <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-            <a href="#" class="btn btn-primary btn-lg btn-block btn-icon-split">
-              <i class="fas fa-rocket"></i> 建议
+            <a href="https://github.com/oh-today/oh-today" class="btn btn-primary btn-lg btn-block btn-icon-split">
+              <i class="fas fa-rocket"></i> github
             </a>
           </div>
         </aside>

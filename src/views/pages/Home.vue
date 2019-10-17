@@ -9,12 +9,12 @@
           </h2>
           <p class="lead" v-text="site.host">zhihu.com</p>
           <div class="mt-4">
-            <router-link
+            <!-- <router-link
               :to="'/site/'+site.id"
               class="btn btn-outline-white btn-lg btn-icon icon-left"
             >
               <i class="far fa-user"></i> 订阅
-            </router-link>
+            </router-link> -->
             <router-link
               :to="'/site/'+site.id"
               class="btn btn-outline-white btn-lg btn-icon icon-left"
